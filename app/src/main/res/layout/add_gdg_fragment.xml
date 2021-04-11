@@ -31,7 +31,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:context=".add.AddGdgFragment">
 
             <TextView
@@ -74,7 +74,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/EditTextEmail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
             <EditText
                 android:id="@+id/EditTextEmail"
@@ -88,7 +88,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/EditTextCity"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditTextName"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/EditTextName"/>
 
             <EditText
                 android:id="@+id/EditTextCity"
@@ -102,7 +102,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/EditTextCountry"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditTextEmail"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/EditTextEmail"/>
 
             <EditText
                 android:id="@+id/EditTextCountry"
@@ -116,7 +116,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/EditTextRegion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditTextCity"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/EditTextCity"/>
 
             <EditText
                 android:id="@+id/EditTextRegion"
@@ -130,17 +130,17 @@
                 app:layout_constraintBottom_toTopOf="@+id/EditTextWhy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EditTextCountry"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/EditTextCountry"/>
 
             <TextView
                 android:id="@+id/labelTextWhy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="1dp"
                 android:text="@string/motivation"
                 app:layout_constraintBottom_toTopOf="@+id/EditTextWhy"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/EditTextRegion" />
 
@@ -161,8 +161,8 @@
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="40dp"
-                android:layout_height="24dp"
+                android:layout_width="48dp"
+                android:layout_height="32dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="12dp"
                 android:backgroundTint="#00FF00"
