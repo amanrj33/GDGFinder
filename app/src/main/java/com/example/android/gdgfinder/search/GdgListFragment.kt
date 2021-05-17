@@ -65,9 +65,8 @@ class GdgListFragment : Fragment() {
         // Sets the adapter of the RecyclerView
         binding.gdgChapterList.adapter = adapter
 
-        viewModel.showNeedLocation.observe(viewLifecycleOwner, object: Observer<Boolean> {
-            override fun onChanged(show: Boolean?) {
-                // Snackbar is like Toast but it lets us show forever
+        viewModel.showNeedLocation.observe(viewLifecycleOwner,
+            Observer<Boolean> { show -> // Snackbar is like Toast but it lets us show forever
                 if (show == true) {
                     Snackbar.make(
                         binding.root,
@@ -75,10 +74,31 @@ class GdgListFragment : Fragment() {
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
-            }
-        })
+            })
 
         setHasOptionsMenu(true)
+        viewModel.regionList.observe(viewLifecycleOwner, object : Observer<List<String>> {
+            override fun onChanged(data: List<String>?) {
+                data ?: return
+                val chipGroup = binding.regionList
+                val children = data.map { regionName ->
+                    val chip = LayoutInflater.from(chipGroup.context)
+                        .inflate(R.layout.region, chipGroup, false) as Chip
+                    chip.text = regionName
+                    chip.tag = regionName
+                        chip.setOnCheckedChangeListener { button, isChecked ->
+                            viewModel.onFilterChanged(button.tag as String, isChecked)
+                        }
+                    chip
+                }
+                chipGroup.removeAllViews()
+
+                for (chip in children) {
+                    if (chip.text.isNotEmpty())
+                    chipGroup.addView(chip)
+                }
+            }
+        })
         return binding.root
     }
 
